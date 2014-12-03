@@ -1,4 +1,4 @@
-package org.afpa59.patrice.servlet;
+package org.afpa59.patrice.services.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
