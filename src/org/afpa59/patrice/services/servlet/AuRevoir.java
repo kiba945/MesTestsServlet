@@ -35,6 +35,7 @@ public class AuRevoir extends HttpServlet {
 		page.println("<font size=+5>");
 		page.println("Au revoir ...<br/> <strong>Adieu</strong>");
 		page.println("</font>");
+		page.println("<br><br><a href='index.html'> Retour index</a>");
 		page.println("</body>");	
 		page.println("</html>");
 	}
