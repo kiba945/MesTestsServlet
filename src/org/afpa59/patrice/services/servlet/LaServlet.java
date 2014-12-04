@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.afpa59.patrice.donnees.Article;
+
 /**
  * Servlet implementation class LaServlet
  */
@@ -29,6 +31,40 @@ public class LaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+		PrintWriter page = response.getWriter();
+		page.println("<html>");
+		page.println("<head>");
+		page.println("<title> La Servlet </title>");
+		page.println("</head>");
+		page.println("</html>");		
+
+		page.println("<body> Je suis là dans le doGET<br><br></body>");
+		
+		
+
+	
+		
+		Article article = (Article) request.getAttribute("Article");
+		
+	
+		
+		if (article.getCode()== 0 | article.getDesignation().equals("")){
+			page.println("<body>");
+			page.println("Veuillez saisir tous les champs.");
+			page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
+			page.println("</body>");	
+		}else{
+			page.println("<body>");
+			page.println("<font size=+2>");
+			page.println("Votre Article est code "
+					+ article.getCode()
+					+ " designation: "
+					+ article.getDesignation());
+			page.println("</font>");
+			page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
+			page.println("</body>");			
+		}
 	}
 
 	/**
@@ -44,10 +80,12 @@ public class LaServlet extends HttpServlet {
 		page.println("</head>");
 		page.println("</html>");		
 
+		page.println("<body> Je suis là dans le doPOST<br><br></body>");
+		
 		String id = request.getParameter("id");
 		String designation = request.getParameter("designation");
 		
-		if (id == null | designation.equals("")){
+		if (/*id == null | */designation.equals("")){
 			page.println("<body>");
 			page.println("Veuillez saisir tous les champs.");
 			page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
