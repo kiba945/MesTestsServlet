@@ -3,13 +3,15 @@ package org.afpa59.patrice.services.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.afpa59.patrice.donnees.Article;
+import com.afpa59.patrice.donnees.Article;
+
 
 /**
  * Servlet implementation class LaServlet
@@ -31,40 +33,30 @@ public class LaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Integer compteur = null;
+		
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
 		page.println("<html>");
 		page.println("<head>");
 		page.println("<title> La Servlet </title>");
 		page.println("</head>");
-		page.println("</html>");		
-
-		page.println("<body> Je suis là dans le doGET<br><br></body>");
-
-		Article article = (Article) request.getAttribute("Article");
-
-		System.out.println("Code: " + article.getCode());
-		System.out.println("Designation: " + article.getDesignation());
-		System.out.println("Prix: " + article.getPrix());
-
-		if (article.getCode() == 0 || article.getDesignation().equals(" ") ){
-			page.println("<body>");
-			page.println("Veuillez saisir tous les champs.");
-			page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
-			page.println("</body>");	
-		}else{
-			page.println("<body>");
-			page.println("<font size=+2>");
-			page.println("Votre Article est Code "
-					+ article.getCode()
-					+ " Designation: "
-					+ article.getDesignation()
-					+ " Prix: "
-					+ article.getPrix());
-			page.println("</font>");
-			page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
-			page.println("</body>");			
-		}
+				
+	
+		page.println("<body>");
+		
+		RequestDispatcher rdEntete = request.getRequestDispatcher("ServletEntete");
+		rdEntete.include(request, response);
+		
+		page.println("<a> <br><br> Je suis là dans le doGET <br><br> </a>");
+		
+		page.println("<a href='SaisieArticle.html'> Retour index</a>");
+		
+		RequestDispatcher rdPied = request.getRequestDispatcher("ServletPied");
+		rdPied.include(request, response);
+		
+		page.println("</body>");	
+		page.println("</html>");
 	}
 
 	/**
@@ -80,15 +72,17 @@ public class LaServlet extends HttpServlet {
 		page.println("<html>");
 		page.println("<head>");
 		page.println("<title> La Servlet </title>");
-		page.println("</head>");
-		page.println("</html>");		
-
-		page.println("<body> Je suis là dans le doPOST<br><br></body>");
-
+		page.println("</head>");		
+	
+		page.println("<body>");
+		
+		RequestDispatcher rdEntete = request.getRequestDispatcher("ServletEntete");
+		rdEntete.include(request, response);
+		
+		page.println("<a> Je suis là dans le doPOST<br><br></a>");
 		
 		
 		/* Création et récupération de la session*/
-		
 		HttpSession session = request.getSession();
 		
 		System.out.println("Session: " + session);
@@ -108,12 +102,10 @@ public class LaServlet extends HttpServlet {
 		System.out.println("Prix: " + article.getPrix());
 
 		if (article.getCode() == 0 || article.getDesignation().equals(" ") ){
-			page.println("<body>");
+			
 			page.println("Veuillez saisir tous les champs.");
-			page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
-			page.println("</body>");	
+			
 		}else{
-			page.println("<body>");
 
 			page.println("Hauteur du panier: "
 					+ compteur
@@ -129,9 +121,15 @@ public class LaServlet extends HttpServlet {
 					+ article.getPrix());
 			page.println("</font>");
 			
-			page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
-			page.println("</body>");			
 		}
+		
+		page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
+		
+		RequestDispatcher rdPied = request.getRequestDispatcher("ServletPied");
+		rdPied.include(request, response);
+		
+		page.println("</body>");
+		page.println("</html>");
 	}
 
 }

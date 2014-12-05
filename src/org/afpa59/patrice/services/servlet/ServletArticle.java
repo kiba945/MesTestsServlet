@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.afpa59.patrice.donnees.Article;
+import com.afpa59.patrice.donnees.Article;
 
 /**
  * Servlet implementation class ServletArticle
@@ -30,44 +30,6 @@ public class ServletArticle extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		Integer compteur = null;
-		compteur = new Integer(0);
-		Article article = new Article();
-
-		/* Récupération des élements saisis et création d'un article */
-		RequestDispatcher rd = request.getRequestDispatcher("LaServlet");		
-
-
-		String code = request.getParameter("code");
-		if (code != ""){
-			article.setCode(Integer.parseInt(code));
-		}
-
-
-		String designation = request.getParameter("designation");
-		article.setDesignation(designation);
-
-
-		String prix = request.getParameter("prix");
-		if (prix != ""){
-			article.setPrix(Float.parseFloat(prix));
-		}
-
-		/* Création et récupération de la session*/
-		HttpSession session = request.getSession();
-
-		if (session.getAttribute("monCompteur") != null){
-			compteur = (Integer) session.getAttribute("monCompteur");	
-		}
-		compteur = new Integer(compteur.intValue()+1);
-
-		session.setAttribute("monCompteur", compteur);
-
-		request.setAttribute("Article", article);
-
-
-		rd.forward(request, response);
 	}
 
 
@@ -79,23 +41,23 @@ public class ServletArticle extends HttpServlet {
 
 		Integer compteur = null;
 		compteur = new Integer(0);
-		Article article = new Article();
-
+		Article article = new Article();		
+		
 		/* Récupération des élements saisis et création d'un article */
-		RequestDispatcher rd = request.getRequestDispatcher("LaServlet");			
-
+		RequestDispatcher rd = request.getRequestDispatcher("LaServlet");	
+		
 		String code = request.getParameter("code");
-		if (code != ""){
+		if (!code.equals("")){
 			article.setCode(Integer.parseInt(code));
 		}
 
-
 		String designation = request.getParameter("designation");
+		if (!designation.equals("")){
 		article.setDesignation(designation);
-
+		}
 
 		String prix = request.getParameter("prix");
-		if (prix != ""){
+		if (!prix.equals("")){
 			article.setPrix(Float.parseFloat(prix));
 		}
 
@@ -111,8 +73,9 @@ public class ServletArticle extends HttpServlet {
 
 		request.setAttribute("Article", article);
 
-
+		
 		rd.forward(request, response);
+
 	}
 
 }

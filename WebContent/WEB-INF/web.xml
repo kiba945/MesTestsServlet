@@ -32,6 +32,18 @@
 		<description></description>
 		<servlet-class>org.afpa59.patrice.services.servlet.BonjourVousCompte</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ServletEntete</servlet-name>
+		<display-name>ServletEntete</display-name>
+		<description></description>
+		<servlet-class>org.afpa59.patrice.services.servlet.ServletEntete</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletPied</servlet-name>
+		<display-name>ServletPied</display-name>
+		<description></description>
+		<servlet-class>org.afpa59.patrice.services.servlet.ServletPied</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>AuRevoir</servlet-name>
 		<url-pattern>/AuRevoir</url-pattern>
@@ -51,6 +63,14 @@
 	<servlet-mapping>
 		<servlet-name>BonjourVousCompte</servlet-name>
 		<url-pattern>/BonjourVousCompte</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletEntete</servlet-name>
+		<url-pattern>/ServletEntete</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletPied</servlet-name>
+		<url-pattern>/ServletPied</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
