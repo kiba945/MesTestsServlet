@@ -23,16 +23,18 @@ public class ServletPied extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();	
 
-		page.println("<br><br><div align='left'><a> Conditions générales </a></div>");
-	}
-
+		page.println("<br><br><div align='right'><a> Copyright © "
+				+ request.getParameter("year")
+				+	"</a></div>");
+	}    
+    
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -41,7 +43,9 @@ public class ServletPied extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();	
 
-		page.println("<br><br><div align='left'><a> Conditions générales </a></div>");
+		page.println("<br><br><div align='right'><a> Copyright © "
+				+ request.getParameter("year")
+				+	"</a></div>");
 	}
 
 }

@@ -77,7 +77,15 @@
 			
 			<br><br>
 			
-			<jsp:include page="/ServletPied"> </jsp:include>
+			<jsp:useBean id="Service" class="com.afpa59.patrice.service.fichier.ServiceArticle" scope="session"/>
+			
+<%-- 			<jsp:setProperty property="data" name="Article"/> --%>
+			
+			<br><br>
+			
+			<jsp:include page="/ServletPied">
+				<jsp:param name="year" value="2014"/>
+			</jsp:include>
 			
 		</body>
 </html>
