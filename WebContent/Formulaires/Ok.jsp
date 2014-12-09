@@ -9,24 +9,29 @@
 		<title>JSP OK</title>
 	</head>
 		<body>
-			<%		
-				String nom = request.getParameter("nom");
-				
-				if(nom == null){
-					out.println("C'est OKAY.....");
-				}else{
-					out.println("C'est OKAY....." + nom);
-				}
-			%>
-			
-			<br><br>
-			
-			<%
-				int a = 100;
-				out.println(" depuis les taps " + a);
-			%>
-			
-			<br><br>
+
+	<jsp:include page="/ServletPied">
+		<jsp:param name="year" value="2014" />
+	</jsp:include>
+
+	<%
+		String nom = request.getParameter("nom");
+
+		if (nom == null) {
+			out.println("C'est OKAY.....");
+		} else {
+			out.println("C'est OKAY....." + nom);
+		}
+	%>
+
+	<br><br>
+
+	<%
+		int a = 100;
+		out.println(" depuis les taps " + a);
+	%>
+
+	<br><br>
 			
 			le prix est de <%= a %> euros
 			
@@ -83,9 +88,11 @@
 			
 			<br><br>
 			
-			<jsp:include page="/ServletPied">
+			<jsp:include page="/ServletPied" >
 				<jsp:param name="year" value="2014"/>
 			</jsp:include>
+			
+			Année <%= request.getParameter("year") %>
 			
 		</body>
 </html>

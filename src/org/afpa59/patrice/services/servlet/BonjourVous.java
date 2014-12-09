@@ -45,7 +45,7 @@ public class BonjourVous extends HttpServlet {
 			page.println("BONJOUR " + nom);
 			page.println("</font>");
 		}
-		page.println("<br><br><a href='FormulaireGET.html'> Retour FormulaireGET</a>");
+		page.println("<br><br><a href='Formulaires/FormulaireGET.html'> Retour FormulaireGET</a>");
 		page.println("</body>");	
 
 	}
@@ -73,7 +73,7 @@ public class BonjourVous extends HttpServlet {
 			page.println("BONJOUR " + nom);
 			page.println("</font>");
 		}
-		page.println("<br><br><a href='FormulairePOST.html'> Retour FormulairePOST</a>");
+		page.println("<br><br><a href='Formulaires/FormulairePOST.html'> Retour FormulairePOST</a>");
 		page.println("</body>");	
 	}
 

@@ -61,7 +61,7 @@ public class BonjourVousCompte extends HttpServlet {
 
 		page.println("<br><br>Appel numero: " + compte);
 		
-		page.println("<br><br><a href='FormulaireGET.html'> Retour FormulaireGET</a>");
+		page.println("<br><br><a href='Formulaires/FormulaireGET.html'> Retour FormulaireGET</a>");
 		page.println("</body>");
 		
 	}

@@ -45,14 +45,14 @@ public class LaServlet extends HttpServlet {
 	
 		page.println("<body>");
 		
-		RequestDispatcher rdEntete = request.getRequestDispatcher("ServletEntete");
+		RequestDispatcher rdEntete = request.getRequestDispatcher("/ServletEntete");
 		rdEntete.include(request, response);
 		
 		page.println("<a> <br><br> Je suis là dans le doGET <br><br> </a>");
 		
-		page.println("<a href='SaisieArticle.html'> Retour index</a>");
+		page.println("<a href='../SaisieArticle.html'> Retour index</a>");
 		
-		RequestDispatcher rdPied = request.getRequestDispatcher("ServletPied");
+		RequestDispatcher rdPied = request.getRequestDispatcher("/ServletPied");
 		rdPied.include(request, response);
 		
 		page.println("</body>");	
@@ -107,9 +107,7 @@ public class LaServlet extends HttpServlet {
 			
 		}else{
 
-			page.println("Hauteur du panier: "
-					+ compteur
-					+ "<br><br>");			
+			page.println("Hauteur du panier: "+ compteur+ "<br><br>");			
 			
 			page.println("<font size=+2>");
 			page.println("Votre Article saisie est: <br><br>"
@@ -123,7 +121,7 @@ public class LaServlet extends HttpServlet {
 			
 		}
 		
-		page.println("<br><br><a href='SaisieArticle.html'> Retour index</a>");
+		page.println("<br><br><a href='Formulaires/SaisieArticle.html'> Retour index</a>");
 		
 		RequestDispatcher rdPied = request.getRequestDispatcher("ServletPied");
 		rdPied.include(request, response);
