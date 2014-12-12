@@ -10,7 +10,7 @@
 	</head>
 		<body>
 
-	<jsp:include page="/ServletPied">
+	<jsp:include page="/ServletEntete">
 		<jsp:param name="year" value="2014" />
 	</jsp:include>
 
